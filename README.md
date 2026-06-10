@@ -76,16 +76,6 @@
 
 ---
 
-## 🔗 Links Úteis
-* 🌐 **Demo Online:** [Acesse a Aplicação Web](<link-da-demo-web>)
-  > 💻 **Descrição:** Link para a aplicação em ambiente de produção (Ex: hospedado na Vercel, Netlify ou AWS S3).
-* 📱 **Download Mobile:** [App Store](<link-app-store>) | [Google Play](<link-google-play>) | [APK Direto](<link-para-apk-direto>)
-  > 📱 **Descrição:** Links diretos para download nas lojas de aplicativos (se aplicável) e para o arquivo de instalação direta no Android (APK).
-* 📖 **Documentação:** [Leia a Wiki/Docs](<link-para-docs>)
-  > 📚 **Descrição:** Acesso à documentação técnica completa do projeto (Ex: Swagger/OpenAPI para API, ou Wiki interna).
-
----
-
 ## 📝 Sobre o Projeto
 O **MangaImports** nasceu da necessidade de conectar entusiastas de cultura pop japonesa a obras físicas de difícil acesso no mercado nacional. O projeto consiste em uma plataforma dedicada de e-commerce focada em resolver os principais gargalos desse nicho: controle dinâmico de estoque flutuante, automatização de pagamentos digitais e canal direto de comunicação comunitária para sugestões de novos títulos.
 
@@ -131,72 +121,8 @@ O sistema é estruturado em torno de 8 casos de uso primários:
 * **Cloud:** Vercel (Frontend) e Supabase / AWS (Database & Hosting)
 * **CI/CD:** GitHub Actions
 
----
 
-## 🏗 Arquitetura
-O sistema adota uma **Arquitetura Desacoplada (Client-Server)** baseada em APIs RESTful. O ecossistema é particionado em camadas lógicas bem estruturadas para garantir alta manutenibilidade:
 
-1. **Camada de Apresentação:** Construída com React/TypeScript, consumindo assincronamente as rotas expostas pela API.
-2. **Camada de Aplicação:** Desenvolvida em Spring Boot, atuando como o núcleo das regras de negócio organizadas sob a estrutura clássica de Controllers, Services e Repositories.
-3. **Camada de Dados:** Composta por um Banco de Dados Relacional (PostgreSQL), mapeado por um ORM utilizando estratégias de Tabela por Classe Concreta (Herança de atores) e tabelas associativas explícitas para o relacionamento N:N de itens do pedido.
-
-### Exemplos de diagramas
-
-Os diagramas arquiteturais e comportamentais completos (incluindo diagramas de componentes, implantação, sequências, comunicação, estados e o Modelo Lógico de Entidades) estão devidamente documentados e mapeados para submissão teórica.
-
-| Diagrama de Arquitetura | Detalhe da Arquitetura |
-| :---: | :---: |
-| **Visão Geral (Macro)** | **Camada de Serviço (Micro)** |
-| <img src="https://joaopauloaramuni.github.io/image/aramunilogo.png" alt="Diagrama de Visão Geral do Sistema" width="120px" height="120px"> | <img src="https://joaopauloaramuni.github.io/image/aramunilogo.png" alt="Diagrama de Componentes ou Serviço X" width="120px" height="120px"> |
-| **Modelo de Dados (Entidades)** | **Fluxo de Autenticação** |
-| <img src="https://joaopauloaramuni.github.io/image/aramunilogo.png" alt="Diagrama de Entidade-Relacionamento (DER)" width="120px" height="120px"> | <img src="https://joaopauloaramuni.github.io/image/aramunilogo.png" alt="Diagrama de Sequência de Login" width="120px" height="120px"> |
-| **Infraestrutura (Cloud)** | **API Gateway (Rotas)** |
-| <img src="https://joaopauloaramuni.github.io/image/aramunilogo.png" alt="Diagrama de Deploy na AWS/Vercel" width="120px" height="120px"> | <img src="https://joaopauloaramuni.github.io/image/aramunilogo.png" alt="Mapa de Endpoints da API" width="120px" height="120px"> |
-
----
-
-## 🔧 Instalação e Execução
-
-### Pré-requisitos
-Certifique-se de que o usuário tenha o ambiente configurado.
-
-* **Java JDK:** Versão **17** ou superior (Necessário para o **Back-end Spring Boot**)
-* **Node.js:** Versão LTS (v18.x ou superior) (Necessário para o **Front-end React**)
-* **Gerenciador de Pacotes:** npm ou yarn
-* **Docker** (Opcional, mas **altamente recomendado** para rodar o Banco de Dados)
-
----
-
-### 🔑 Variáveis de Ambiente
-
-Crie arquivos `.env` específicos e/ou configure as variáveis de ambiente no seu sistema para cada parte da aplicação.
-
-#### 1 Back-end (Spring Boot)
-
-Configure estas variáveis como **variáveis de ambiente do sistema** ou em um arquivo de configuração do Spring (ex: `application.properties`/`application.yml`).
-
-| Variável | Descrição | Exemplo |
-| :--- | :--- | :--- |
-| `SERVER_PORT` | Porta onde o Back-end será executado. | `8080` |
-| `SPRING_DATASOURCE_URL` | URL de conexão JDBC (PostgreSQL). | `jdbc:postgresql://localhost:5432/mangaimports_db` |
-| `SPRING_DATASOURCE_USERNAME` | Usuário do banco de dados. | `postgres` |
-| `SPRING_DATASOURCE_PASSWORD` | Senha do banco de dados. | `senha-segura-123` |
-| `JWT_SECRET` | Chave secreta para assinatura de tokens (Opcional). | `chave_super_segura_base64` |
-
-#### 2 Front-end (React, Vite)
-
-Crie um arquivo **`.env`** na raiz da pasta `/frontend` e use o prefixo `VITE_` para expor as variáveis ao *bundle* da aplicação.
-
-| Variável | Descrição | Exemplo |
-| :--- | :--- | :--- |
-| `VITE_API_URL` | URL base do endpoint do Backend Spring Boot. | `http://localhost:8080/api` |
-
----
-
-#### 3. Exemplos de Variáveis de Ambiente na Vercel
-
-A Vercel permite configurar variáveis no painel (Project Settings > Environment Variables).
-Aqui estão exemplos comuns utilizadas em aplicações front-end e full-stack:
 
 ---
 
