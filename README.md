@@ -116,10 +116,3 @@ O sistema é estruturado em torno de 8 casos de uso primários:
 * **Containerização:** Docker & Docker Compose
 * **Cloud:** Vercel (Frontend) e Supabase / AWS (Database & Hosting)
 * **CI/CD:** GitHub Actions
-
-
-
-
----
-
-##### **Exemplo 1 – Front-end com Next.js usando API externa**
